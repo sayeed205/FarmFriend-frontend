@@ -1,13 +1,37 @@
-import React from 'react'
+"use client"
+
+import React, { useState } from 'react'
 import { BsArrowRight } from 'react-icons/bs'
 import Link from 'next/link'
 
 function SignUp() {
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
+    const [confirmPassword, setConfirmPassword] = useState("")
+
+    const handleSubmit = () => {
+        console.log("email", password, confirmPassword)
+        const data = fetch("/api/customer/signup",{
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                email,
+                password,
+                confirmPassword
+
+            })
+        })
+        .then(res => res.json())
+        .then(console.log).catch(console.error);
+    }
+
     return (
         <section className="rounded-md bg-black/80 p-2">
             <div className="flex items-center justify-center bg-white px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
                 <div className="xl:mx-auto xl:w-full xl:max-w-sm 2xl:max-w-md">
-                    <div className="mb-2">
+                    <div className="mbr-2">
                         <svg
                             width="50"
                             height="56"
@@ -31,9 +55,9 @@ function SignUp() {
                             Sign In
                         </Link>
                     </p>
-                    <form action="#" method="POST" className="mt-8">
+                    <form  className="mt-8 text-black    ">
                         <div className="space-y-5">
-                            <div>
+                            {/* <div>
                                 <label htmlFor="name" className="text-base font-medium text-gray-900">
                                     {' '}
                                     Full Name{' '}
@@ -46,7 +70,7 @@ function SignUp() {
                                         id="name"
                                     ></input>
                                 </div>
-                            </div>
+                            </div> */}
                             <div>
                                 <label htmlFor="email" className="text-base font-medium text-gray-900">
                                     {' '}
@@ -58,6 +82,7 @@ function SignUp() {
                                         type="email"
                                         placeholder="Email"
                                         id="email"
+                                        onChange={(e) => setEmail(e.target.value)}
                                     ></input>
                                 </div>
                             </div>
@@ -74,11 +99,30 @@ function SignUp() {
                                         type="password"
                                         placeholder="Password"
                                         id="password"
+                                        onChange={(e) => setPassword(e.target.value)}
+                                    ></input>
+                                </div>
+                            </div>
+                            <div>
+                                <div className="flex items-center justify-between">
+                                    <label htmlFor="password" className="text-base font-medium text-gray-900">
+                                        {' '}
+                                        Confirm Password{' '}
+                                    </label>
+                                </div>
+                                <div className="mt-2">
+                                    <input
+                                        className="flex h-10 w-full rounded-md border border-gray-300 bg-transparent px-3 py-2 text-sm placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400 focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-50"
+                                        type="password"
+                                        placeholder="Confirm Password"
+                                        id="password"
+                                        onChange={(e) => setConfirmPassword(e.target.value)}
                                     ></input>
                                 </div>
                             </div>
                             <div>
                                 <button
+                                    onClick={handleSubmit}
                                     type="button"
                                     className="inline-flex w-full items-center justify-center rounded-md bg-black px-3.5 py-2.5 font-semibold leading-7 text-white hover:bg-black/80"
                                 >
@@ -104,7 +148,7 @@ function SignUp() {
                             </span>
                             Sign up with Google
                         </button>
-                        <button
+                        {/* <button
                             type="button"
                             className="relative inline-flex w-full items-center justify-center rounded-md border border-gray-400 bg-white px-3.5 py-2.5 font-semibold text-gray-700 transition-all duration-200 hover:bg-gray-100 hover:text-black focus:bg-gray-100 focus:text-black focus:outline-none"
                         >
@@ -119,7 +163,7 @@ function SignUp() {
                                 </svg>
                             </span>
                             Sign up with Facebook
-                        </button>
+                        </button> */}
                     </div>
                 </div>
             </div>
