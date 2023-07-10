@@ -1,10 +1,25 @@
+import Header from "@/components/ui/Header";
+import { homeConfig } from "@/config/Home";
+
+// type Props = {};
+
+// const page = (props: Props) => {
+//     return (
+//         <>
+//             <Header items={homeConfig.mainNav} />
+            
+//         </>
+//     );
+// };
+
+// export default page;
 /* eslint-disable @next/next/no-img-element */
 import React from 'react'
 import { BsArrowRight } from 'react-icons/bs'
 
-function ProductCard({title, img, description , link}) {
+function ProductCard({title, img, rate }) {
   return (
-    <div className="w-[300px] rounded-md border">
+    <div className="w-[300px] rounded-md border bg-gray-800">
       <img
         src={img}
         alt="Laptop"
@@ -14,8 +29,8 @@ function ProductCard({title, img, description , link}) {
         <h1 className="inline-flex items-center text-lg font-semibold">
           {title}
         </h1>
-        <p className="mt-3 text-sm text-gray-600">
-          {description}
+        <p className="mt-3 text-sm text-gray-400">
+          Rate per kg: {rate}
         </p>
         {/* <div className="mt-4">
           <span className="mb-2 mr-2 inline-block rounded-full bg-gray-100 px-3 py-1 text-[10px] font-semibold text-gray-900">
