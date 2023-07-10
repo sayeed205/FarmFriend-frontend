@@ -8,6 +8,7 @@ import { siteConfig } from "@/config/site";
 import { fontSans } from "@/lib/fonts";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
+import Header from "@/components/ui/Header";
 
 export const metadata: Metadata = {
     title: {
@@ -45,6 +46,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
                     defaultTheme="system"
                     enableSystem
                 >
+        <Header items={siteConfig.mainNav}/>
+
                     {children}
                     <Analytics />
                     <Toaster />

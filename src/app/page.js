@@ -2,6 +2,8 @@
 'use client';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from 'swiper/react';
+import {Header} from "@/components/ui/Header"
+import { SiteConfig, siteConfig } from '@/config/site';
 
 // Import Swiper styles
 import 'swiper/css';
@@ -18,26 +20,13 @@ import Footer from '@/components/footer';
 
 export default function Home() {
     return (
+        <>
         <main>
             {/* <h1 className="text-4xl font-bold text-center my-2">Farm Friends</h1> */}
             <div className='mx-0 w-full'>
                 <div className='absolute top-20 text-center z-10  text-black w-screen '>
-                    <h1 className='text-4xl font-bold'>Farm Friends</h1>
-                    <p>This is the constant content.</p>
-                    <div className='flex justify-center'>
-                        <Link
-                            href='/customer/signup'
-                            className='bg-green-500 px-4 mx-4 hover:bg-green-700 text-white font-bold py-2 rounded  '
-                        >
-                            Customer
-                        </Link>
-                        <Link
-                            href='/agent/signup'
-                            className='bg-green-500 px-4 mx-4 hover:bg-green-700 text-white font-bold py-2 rounded  '
-                        >
-                            Agent
-                        </Link>
-                    </div>
+                    <h1 className='text-6xl font-bold'>Farmer Friends</h1>
+                    <p className='text-2xl font-semibold my-2'>Are you a <Link className=' text-sky-900 font-bold'  href='/customer/signup' >Customer</Link> or an <Link className=' text-sky-900 font-bold' href='/agent/signup'>Agent</Link> ?</p>
                 </div>
                 <Swiper
                     spaceBetween={30}
@@ -80,5 +69,7 @@ export default function Home() {
                 <Footer />
             </div>
         </main>
+        </>
+
     );
 }
