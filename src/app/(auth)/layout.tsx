@@ -1,4 +1,5 @@
 import { Icons } from "@/components/icons";
+import LocalStorage from "@/components/local-storage";
 import { buttonVariants } from "@/components/ui/button";
 import { getCurrentUser } from "@/lib/auth/session";
 import { cn } from "@/lib/utils";
@@ -27,6 +28,7 @@ export default async function AuthLayout({ children }: AuthLayoutProps) {
                     Back
                 </>
             </Link>
+            <LocalStorage />
             {children}
         </div>
     );

@@ -17,6 +17,10 @@ interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 const LoginForm = ({ className, ...props }: UserAuthFormProps) => {
     const searchParams = useSearchParams();
+
+    // if the url includes agent then use agent in fetch url
+    const user = window.location.href.includes("agent") ? "agent" : "customer";
+
     const router = useRouter();
     const {
         register,
@@ -38,7 +42,7 @@ const LoginForm = ({ className, ...props }: UserAuthFormProps) => {
         //     callbackUrl: searchParams?.get("from") || "/",
         // });
 
-        const res = await fetch("/api/agent/login", {
+        const res = await fetch(`/api/${user}/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -58,6 +62,11 @@ const LoginForm = ({ className, ...props }: UserAuthFormProps) => {
                 variant: "destructive",
             });
         }
+
+        // set the token in the local storage returned from the server
+        const { token } = await res.json();
+
+        localStorage.setItem("token", token);
 
         router.refresh();
         return toast({

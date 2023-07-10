@@ -18,6 +18,8 @@ interface UserAuthFormProps extends React.HTMLAttributes<HTMLDivElement> {}
 
 const SignupFrom = ({ className, ...props }: UserAuthFormProps) => {
     const router = useRouter();
+    const user = window.location.href.includes("agent") ? "agent" : "customer";
+
     const {
         register,
         handleSubmit,
@@ -31,7 +33,7 @@ const SignupFrom = ({ className, ...props }: UserAuthFormProps) => {
 
     const onSubmit = async (data: SignupSchema) => {
         setIsLoading(true);
-        const res = await fetch("/api/agent/signup", {
+        const res = await fetch(`/api/${user}/signup`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -57,7 +59,7 @@ const SignupFrom = ({ className, ...props }: UserAuthFormProps) => {
             description: "Please verify your email after login",
             variant: "default",
         });
-        router.push("/agent/login");
+        router.push(`/${user}/login`);
     };
 
     return (
