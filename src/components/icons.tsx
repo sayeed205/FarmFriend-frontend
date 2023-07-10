@@ -25,6 +25,7 @@ import {
     Trash,
     Twitter,
     User,
+    User2,
     X,
     type Icon as LucideIcon,
 } from "lucide-react";
@@ -54,6 +55,7 @@ export const Icons = {
     moon: Moon,
     laptop: Laptop,
     eye: Eye,
+    user2: User2,
     palmtree: Palmtree,
     eyeOff: EyeOff,
     gitHub: ({ ...props }: LucideProps) => (

@@ -12,6 +12,9 @@ import Link from 'next/link';
 
 // import required modules
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import Statistics from '@/components/statistics';
+import Testimonial from '@/components/testimonial';
+import Footer from '@/components/footer';
 
 export default function Home() {
     return (
@@ -59,12 +62,22 @@ export default function Home() {
                     </SwiperSlide>
                     <SwiperSlide className=''>
                         <img
-                            src='https://images.pexels.com/photos/21393/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+                            src='https://images.pexels.com/photos/247616/pexels-photo-247616.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
                             alt='slide2'
                             className='w-screen'
                         />
                     </SwiperSlide>
+                    <SwiperSlide className=''>
+                        <img
+                            src='https://images.pexels.com/photos/247512/pexels-photo-247512.jpeg'
+                            alt='slide3'
+                            className='w-screen'
+                        />
+                    </SwiperSlide>
                 </Swiper>
+                <Statistics />
+                <Testimonial />
+                <Footer />
             </div>
         </main>
     );
