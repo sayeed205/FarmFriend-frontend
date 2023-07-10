@@ -11,10 +11,10 @@ const Footer = (props: Props) => {
                 <div className="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left">
                     <a className="flex title-font font-medium items-center md:justify-start justify-center text-gray-400">
                        <Icons.palmtree/>
-                        <span className="ml-3 text-xl">Tailblocks</span>
+                        <span className="ml-3 text-xl">Farmer Friend</span>
                     </a>
                     <p className="mt-2 text-sm text-gray-400">
-                        Air plant banjo lyft occupy retro adaptogen indego
+                        Improving farmers condition while decreasing food cost.
                     </p>
                 </div>
                 <div className="flex-grow flex flex-wrap md:pl-20 -mb-10 md:mt-0 mt-10 md:text-left text-center">
